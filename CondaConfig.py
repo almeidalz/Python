@@ -7,7 +7,7 @@ Copyright:   Luiz Almeida
 Contact: almeidalz@hotmail.com
 Licence: <free version v.1.0, for Python>
 --------------------------------------------------------------------------
-Use (EN): The purpose of this script is to create the proxy configuration file 
+Use (US): The purpose of this script is to create the proxy configuration file 
      for the Conda Python interpreter. Free use, please quote the source.
      The script can be compiled directly in the anaconda prompt or in the 
      interpreter, it will create in the user directory the file ".condarc",
