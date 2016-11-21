@@ -1,4 +1,4 @@
-# Python_Useful #
+# Python_Useful
 PT-BR: Este diretório contem arquivos para configurações basicas de python e utilidades básicas...
 --
-° CondaConfig.py - Script para configuração de servidor de proxy.
+##° CondaConfig.py - Script para configuração de servidor de proxy.
