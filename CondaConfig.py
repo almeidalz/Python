@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 '''
 Script: Creation Conda Config
-Updated:     20161121, almeidalz
+Updated:     20171003, almeidalz
 Copyright:   Luiz Almeida 
 Contact: almeidalz@hotmail.com
-Licence: <free version v.1.0, for Python>
+Licence: <free version v.1.1, for Python>
 --------------------------------------------------------------------------
 Use (US): The purpose of this script is to create the proxy configuration file 
      for the Conda Python interpreter. Free use, please quote the source.
@@ -21,14 +21,16 @@ Uso (PT):  O objetivo deste script é criar o arquivo de configuração do proxy
       Basta que você informe nas variáveis "UserName"; "Senha";
       "ProxyName" e "Port" suas configurações de proxy. Execute como admin.
 '''
-def CondaConfig():
-    #Inserir o nome de usuário proxy
-    UserName = 'username@proxylocal.com' 
-    #Inserir a senha de usuário do proxy
-    Password = 'senha1234' 
-    #Inserir nome do proxy local
-    ProxyName = 'proxylocal.com' 
-    Porta = '8080'
+#Inserir o nome de usuário proxy
+UserName = 'username@servidor.com' 
+#Inserir a senha de usuário do proxy
+Password = '1234' 
+#Inserir nome do proxy local
+ProxyName = 'proxy.servidor.com'
+#Porta de acesso do servidor de proxy 
+Port = '8080'
+
+def Conda_Config(UserName, Password, ProxyName, Port):
 
     #importa a biblioteca os
     import os
@@ -40,15 +42,15 @@ def CondaConfig():
     #Verifica a existência do arquivo de configuração, se não existir cria.
     if not os.path.exists('.condarc'):
         
-        ArqConfig = open('.condarc','a')  
-        #Configurações do arquivo .condarc para o servidor de proxy
-        ArqConfig.write(('proxy_servers:')+"\r\n")
-        ArqConfig.write(('   http: http://' + UserName + ':' + Password + '@' + ProxyName + ':' + Porta)+"\r\n")
-        ArqConfig.write(('   https: https://' + UserName + ':' + Password + '@' + ProxyName + ':' + Porta)+"\r\n")
-        ArqConfig.close()
+        with open('.condarc','a')  as ArqConfig:
+            #Configurações do arquivo .condarc para o servidor de proxy
+            ArqConfig.write(('proxy_servers:')+"\r\n")
+            ArqConfig.write(('   http: http://' + UserName + ':' + Password + '@' + ProxyName + ':' + Port)+"\r\n")
+            ArqConfig.write(('   https: https://' + UserName + ':' + Password + '@' + ProxyName + ':' + Port)+"\r\n")
+            ArqConfig.close()
         
     else:
         #Caso o arquivo de configuração já exista ele mostrará onde esta localizado.
         print 'Arquivo de configuração existente em: ', os.getcwd()
     
-CondaConfig()
+Conda_Config(UserName, Password, ProxyName, Port)
