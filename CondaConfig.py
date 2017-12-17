@@ -12,7 +12,7 @@ Use (US): Purpose of this script is to create the proxy configuration file
      The script can be compiled directly in the anaconda prompt or in the 
      interpreter, it will create in the user directory the file ".condarc",
      it is enough inform in the variables "UserName"; "Password";
-     "ProxyName" and "Porta" your proxy settings. Execute as administrator.
+     "ProxyName" and "Port" your proxy settings. Execute as administrator.
 '''
 
 #Inserir o nome de usuário proxy
